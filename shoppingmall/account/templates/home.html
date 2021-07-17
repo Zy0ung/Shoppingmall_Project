@@ -12,6 +12,7 @@
     [홈]
     {% if user.is_authenticated %}
     <h3>{{ user.username }}님 환영합니다!</h3>
+    <p><img src="{{ user.image.url }}" alt="안나와요" width="200"></p>
     <a href="{% url 'user_logout' %}">
         <button>로그아웃</button>
     </a>

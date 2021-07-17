@@ -28,6 +28,8 @@ def signup(request):
                 username = request.POST["username"],
                 password = request.POST["password"],
                 university = request.POST["university"],
+                adress = request.POST["adress"],
+                image = request.FILES["image"],
             )
             user.save()
             auth.login(request, user)

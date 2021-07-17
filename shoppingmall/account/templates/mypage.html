@@ -10,7 +10,11 @@
     <h2>내 정보</h2>
     <span>아이디 : </span>
     <span>{{user.username}}</span><br>
-    <span>대학교: </span>
+    <span>대학교:
     <span>{{user.university}}</span><br>
+    <span>주소:
+        <span>{{user.adress}}</span><br>
+    <span>프로필 사진:
+        <p><img src="{{ user.image.url }}" alt="안나와요" width="200"></p>
 </body>
 </html>

@@ -1,19 +1,15 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% block title %}상세페이지{% endblock %}
+{% block link %}{% endblock %}
+{% block content %}
+
     <h1>자세히보기</h1>
     <h3>{{ item.name }}</h3>
     <h3>{{ item.price }}</h3>
     <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
     <h3>{{ item.body }}</h3>
-    <a href="{% url 'edit' item.id %}"><input type="button" value="수정하기"></a>
+    <a href="{% url 'update' item.id %}"><input type="button" value="수정하기"></a>
     <a href="{% url 'delete' item.id %}"><input type="button" value="삭제하기"></a>
-</body>
-</html>
+
+{% endblock %}

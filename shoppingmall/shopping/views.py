@@ -23,9 +23,14 @@ def create(request):
     else:
         return render(request, 'new.html')
 
+
 def detail(request, id):
     item = get_object_or_404(Item, pk=id)
     return render(request, 'detail.html', {'item' : item})
+
+def edit(request, id):
+    item = Item.objects.get(id = id)
+    return render(request, 'edit.html', {'item':item})
 
 def update(request, id):
     if request.method == 'POST':
@@ -38,7 +43,7 @@ def update(request, id):
         return redirect('detail', update_item.id)
     else:
         item = Item.objects.get(id = id)
-        return render(request, 'edit.html', {'item':item})
+    return render(request, 'edit.html', {'item':item})
         
 def delete(request, id):
     delete_item = Item.objects.get(id = id)

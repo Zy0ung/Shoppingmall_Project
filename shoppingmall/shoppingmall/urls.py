@@ -15,21 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 from account import views as a
-from shopping import views as s
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', s.home, name='home'),
-    path('detail/', s.detail, name='detail'),
-    path('account/signup', a.signup, name='signup'),
-    path('account/user_login', a.user_login, name='user_login'),
-    path('account/user_logout', a.user_logout, name='user_logout'),
-    path('account/mypage', a.mypage, name="mypage"),
-    path('create/', s.create, name="create"),
-    path('<str:id>', s.detail, name="detail"),
-    path('update/<str:id>', s.update, name='update'),
-    path('delete/<str:id>', s.delete, name='delete'),
+    path('', include('shopping.urls')),
+    path('account/', include('account.urls')),
+    
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -4,8 +4,6 @@ from .models import User
 from django.contrib import auth
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
 
 def user_login(request):
     if request.method == "POST":

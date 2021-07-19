@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="account_user">
+    {% if user.is_authenticated %}
+    <h3>{{ user.username }}님 환영합니다!</h3>
+    <p><img src="{{ account.image.url }}" alt="안나와요" width="200"></p>
+    <a href="{% url 'user_logout' %}">
+        <button>로그아웃</button>
+    </a>
+    {% else %}
+    <h3>로그인이 필요합니다.</h3>
+    <a href="{% url 'user_login' %}">
+        <button>로그인</button>
+    </a>
+    {% endif %}
+    </div>
+    <h1>[ 쇼핑몰 ]</h1>
+    <hr>
+    {% for item in items %}
+    <div>
+        <p>
+            <span>{{ item.name }}</span><br>
+            <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
+            <span>{{ item.body }}</span><br>
+            <span>\{{ item.price }}</span>
+            <a href="{% url 'detail' item.id %}">자세히보기</a>
+        </p>
+        <hr>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>[ 상품 등록 페이지 ]</h3>
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>상품 이름 : <input name="name" type="text"></p>
+        <p>상품 가격 : <input name="price" type="text"></p>
+        <p>상품 사진 : <input name="image" type="file"></p>
+        <p>상품 설명</p><textarea name="body" cols="30" rows="10" style="resize: none;"></textarea>
+        <br>
+        <button>상품 등록</button>
+    </form>
+</body>
+</html>

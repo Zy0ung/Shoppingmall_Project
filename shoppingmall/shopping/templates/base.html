@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -32,7 +33,7 @@
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 {% if user.is_authenticated %}
-                <img src="{{ user.imgae.url }}" alt="mdo" width="32" height="32" class="rounded-circle">
+                <img src="{{ user.image.url }}" alt="X" width="32" height="32" class="rounded-circle">
                 {% else %}
                 <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                 {% endif %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} 주문 목록 {% endblock %}
+{% block content %}
+    <h3>주문 목록</h3>
+    {% for item in result %}
+    <a href="{% url 'detail' item.id %}">
+        <div>
+            <p><img src = "{{ item.image.url }}" width="300px" height="300px"></p>
+            <p>상품명 : {{item.name}}</p> 
+            <p>상품 설명 : {{item.body}} </p>
+        </div>
+    </a>
+    {% endfor %}
+{% endblock %}

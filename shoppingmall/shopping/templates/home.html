@@ -3,19 +3,37 @@
 {% block title %}Shoppingmall{% endblock %}
 {% block link %}{% static 'css/home.css' %}{% endblock %}
 {% block content %}
-
-    <h1>[ 쇼핑몰 ]</h1>
-    <hr>
+<h4 style="text-align: center; padding-top:3%">[소중한 나의 강아지에게 선물을 해주세요!]</h4>
+<div class="list_wrap">
+    <ul>
     {% for item in items %}
-    <div>
-        <p>
-            <span>{{ item.name }}</span><br>
+    <div class="item">
+        <a href="{% url 'detail' item.id %}">
             <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
-            <span>{{ item.body }}</span><br>
-            <span>\{{ item.price }}</span>
-            <a href="{% url 'detail' item.id %}">자세히보기</a>
-        </p>
-        <hr>
+            <p>{{ item.name }}</p><br>
+            <p>{{ item.price }}</p>
+        </a>
     </div>
     {% endfor %}
+    </ul>
+    <div class="page">
+        {% if items.has_previous %}
+        <a href="?page={{items.previous_page_number}"><</a>
+      {% endif %}
+      {% if items.has_next %}
+      <a href="#"><</a>
+      {% endif %}
+      
+      <span>{{items.number}}</span>
+      <span>of</span>
+      <span>{{items.paginator.num_pages}}</span>
+      
+      {% if items.has_previous %}
+      <a href="#">></a>
+      {% endif %}
+      {% if items.has_next %}
+      <a href="?page={{ items.next_page_number}}">></a>
+      {% endif %}
+      </div>
+    </div>
 {% endblock %}

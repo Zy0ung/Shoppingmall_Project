@@ -7,6 +7,7 @@ class Item(models.Model):
     body = models.TextField()
     price = models.CharField(max_length=500)
     image = models.ImageField(upload_to = "shopping/", blank=True, null=True)
-
+    pub_date = models.DateTimeField()
+    
     def __str__(self) :
         return self.name

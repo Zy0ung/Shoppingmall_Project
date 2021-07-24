@@ -2,10 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Item
 from account.models import User, Order
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 def home(request):
-    items = Item.objects.all()
+    items = Item.objects.order_by('-pub_date')
+    paginator = Paginator(items, 3)
+    page = request.GET.get('page')
+    items = paginator.get_page(page)
     return render(request, 'home.html', {'items' : items})
 
 def create(request):
@@ -15,6 +20,7 @@ def create(request):
         new_item.price = request.POST['price']
         new_item.image = request.FILES['image']
         new_item.body = request.POST['body']
+        new_item.pub_date = timezone.now()
         new_item.save() 
         return redirect('home')
     else:

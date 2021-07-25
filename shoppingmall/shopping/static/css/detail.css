@@ -19,3 +19,40 @@
     display: flex;
 }
 
+#wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+.btn_area {
+    margin: 30px 0 91px;
+    padding-left: 3%;
+    width: 200px;
+}
+
+#btnJoin {
+    width: 100%;
+    padding: 21px 0 17px;
+    border: 0;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: hsl(60, 100%, 95%);
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+.detail-body{
+    text-align: left;
+}
+
+.detail-body h3{
+    padding-bottom: 3%;
+}

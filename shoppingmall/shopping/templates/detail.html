@@ -6,44 +6,38 @@
     <div class="item">
         <div class="item-detail">
             <div class="detail-image">
-                <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
+                <img src="{{ item.image.url }}" width="230" alt="안나옴">
             </div>
             <div class="detail-body">
-                <h3>{{ item.name }}</h3>
-                <h3>{{ item.price }}</h3>
+                <h3>[{{ item.name }}]</h3>
+                <h3>가격 : {{ item.price }}</h3>
                 <h3>{{ item.body }}</h3>
             </div>
         </div>
+
             {% if user.is_authenticated %}
-        
-        <div>
-        <a href="{% url 'order' item.id %}">
-            <button id="order-btn">주문하기</button>
-        </a>
-        </div>
     <!-- wrapper -->
         <div id="wrapper">
-            <!-- content-->
-                <div id="content">
                 <!-- JOIN BTN-->
                 <div class="btn_area">
                         <a href="{% url 'order' item.id %}">
                             <button id="btnJoin">주문하기</button>
                         </a>
-                </div>
-            </div> 
+                    </div>
+                        <div class="btn_area">
+                        {% if user.is_superuser %}
+                        <a href="{% url 'update' item.id %}">
+                            <button id="btnJoin">수정하기</button>
+                        </a>
+                    </div>
+                        <div class="btn_area">
+                        <a href="{% url 'delete' item.id %}">
+                            <button id="btnJoin">삭제하기</button>
+                        </a>
+                    </div>
+                        {% endif %}
+            </div>
         </div> 
 
-        <br>
-        {% if user.is_superuser %}
-        <div>
-        <a href="{% url 'update' item.id %}"><input type="button" value="수정하기"></a>
-        </div>
-        <div>
-        <a href="{% url 'delete' item.id %}"><input type="button" value="삭제하기"></a>
-        </div>
         {% endif %}
-        {% endif %}
-    </div>
-    </div>
 {% endblock %}

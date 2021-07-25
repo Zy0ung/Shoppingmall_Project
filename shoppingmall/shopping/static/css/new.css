@@ -8,3 +8,46 @@
 *{
     font-family: 'IM_Hyemin-Regular';
 }
+
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.login{
+    margin-top: 3%;
+}
+
+#id{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border-color: #e4e4e4;
+    border-width: 1px;
+    font-size: 14px;
+}
+
+input:focus{
+    outline: none;
+}
+
+
+.btn_area {
+    text-align: center;
+    margin: 30px 0 90px;
+}
+
+#btnJoin {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 200px;
+    padding: 21px 0 15px;
+    border: 0;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: hsl(60, 100%, 95%);
+    font-size: 15px;
+    border-radius: 20px;
+}

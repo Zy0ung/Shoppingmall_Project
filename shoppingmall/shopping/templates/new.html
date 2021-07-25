@@ -3,16 +3,24 @@
 {% block title %}상품 등록{% endblock %}
 {% block link %}{% static 'css/new.css' %}{% endblock %}
 {% block content %}
-
-    <h3>[ 상품 등록 페이지 ]</h3>
+    <h3 style="text-align: center; padding-bottom:3%">상품을 등록해 주세요</h3>
     <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        <p>상품 이름 : <input name="name" type="text"></p>
-        <p>상품 가격 : <input name="price" type="text"></p>
-        <p>상품 사진 : <input name="image" type="file"></p>
-        <p>상품 설명</p><textarea name="body" cols="30" rows="10" style="resize: none;"></textarea>
-        <br>
-        <button>상품 등록</button>
+        <div class="content">
+            <div class="post">
+                <p>상품 이름 : <input id= "id" name="name" type="text"></p><br>
+                <p>상품 가격 : <input id= "id" name="price" type="text"></p><br>
+                <p>상품 사진 : <input  name="image" type="file"></p><br>
+                <p>상품 설명</p><textarea name="body" cols="50" rows="5" style="resize: none;"></textarea><br>
+            </div>
+        </div>
+
+            <!-- JOIN BTN-->
+            <div class="btn_area">
+                <button id="btnJoin">
+                    상품등록
+                </button>
+            </div>
     </form>
 
 {% endblock %}

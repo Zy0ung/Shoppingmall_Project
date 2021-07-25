@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>내 정보</h2>
-    <span>아이디 : </span>
-    <span>{{user.username}}</span><br>
-    <span>대학교:
-    <span>{{user.university}}</span><br>
-    <span>주소:
-        <span>{{user.adress}}</span><br>
-    <span>프로필 사진:
-        <p><img src="{{ user.image.url }}" alt="안나와요" width="200"></p>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}마이페이지{% endblock %}
+{% block link %}{% static 'css/mypage.css' %}{% endblock %}
+{% block content %}
+
+<h3 style="text-align: center; padding-top:3%">[ {{user.username}} ]님, 반갑습니다!</h3>
+<div class="mypage">
+    <span><p><img src="{{ user.image.url }}" alt="안나와요" width="200"></p></span>
+        <span><p>아이디 : {{user.username}}</p></span><br>
+        <span><p>대학교 : {{user.university}}</p></span><br>
+        <span><p>주소 : {{user.adress}}</p></span><br>
+</div>
+        {% endblock %}

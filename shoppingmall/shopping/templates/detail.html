@@ -3,26 +3,47 @@
 {% block title %}상세페이지{% endblock %}
 {% block link %}{% static 'css/detail.css' %}{% endblock %}
 {% block content %}
+    <div class="item">
+        <div class="item-detail">
+            <div class="detail-image">
+                <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
+            </div>
+            <div class="detail-body">
+                <h3>{{ item.name }}</h3>
+                <h3>{{ item.price }}</h3>
+                <h3>{{ item.body }}</h3>
+            </div>
+        </div>
+            {% if user.is_authenticated %}
+        
+        <div>
+        <a href="{% url 'order' item.id %}">
+            <button id="order-btn">주문하기</button>
+        </a>
+        </div>
+    <!-- wrapper -->
+        <div id="wrapper">
+            <!-- content-->
+                <div id="content">
+                <!-- JOIN BTN-->
+                <div class="btn_area">
+                        <a href="{% url 'order' item.id %}">
+                            <button id="btnJoin">주문하기</button>
+                        </a>
+                </div>
+            </div> 
+        </div> 
 
-    <h3>{{ item.name }}</h3>
-    <h3>{{ item.price }}</h3>
-    <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
-    <h3>{{ item.body }}</h3>
-    {% if user.is_authenticated %}
-    <div>
-    <a href="{% url 'order' item.id %}">
-        <button id="order-btn">주문하기</button>
-    </a>
-</div>
-    <br>
-    {% if user.is_superuser %}
-    <div>
-    <a href="{% url 'update' item.id %}"><input type="button" value="수정하기"></a>
+        <br>
+        {% if user.is_superuser %}
+        <div>
+        <a href="{% url 'update' item.id %}"><input type="button" value="수정하기"></a>
+        </div>
+        <div>
+        <a href="{% url 'delete' item.id %}"><input type="button" value="삭제하기"></a>
+        </div>
+        {% endif %}
+        {% endif %}
     </div>
-    <div>
-    <a href="{% url 'delete' item.id %}"><input type="button" value="삭제하기"></a>
     </div>
-    {% endif %}
-    {% endif %}
-
 {% endblock %}

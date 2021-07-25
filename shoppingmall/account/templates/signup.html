@@ -4,23 +4,67 @@
 {% block link %}{% static 'css/signup.css' %}{% endblock %}
 {% block content %}
 
-<h1 class="signup-title">회원가입</h1>
+<h1 style="text-align: center;">회원가입</h1>
 
     <form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="signup">
-            <p><input class="int" type="text" name="username" placeholder="아이디를 입력하세요 ."><br></p>
-            <p><input class="int" type="password" name="password" placeholder="비밀번호를 입력하세요 ."><br></p>
-            <p><input class="int" type="password" name="password2" placeholder="비밀번호를 한 번 더 입력하세요"><br></p>
-            <p><input class="int" type="text" name="university" placeholder="재학 중인 대학교를 입력하세요"><br></p>
-            <p><input class="int" type="text" name="adress" placeholder="주소를 입력해주세요."><br></p>
-            <!-- profileImg -->
-            <p>프로필이미지</p>
-                <p class="box">
-                    <input type="file" name="image" accept="image/*"  maxlength="20" required>
-            </p>
+            <!-- wrapper -->
+            <div id="wrapper">
 
-            <button>회원가입</button>
-        </div>
+                <!-- content-->
+                <div id="content">
+
+                    <!-- ID -->
+                    <div>
+                        <h3 class="join_title">
+                            <label for="id">아이디</label>
+                        </h3>
+                        <span class="box int_id">
+                            <input class="int" type="text" name="username" placeholder="아이디를 입력하세요 ."><br>
+                        </span>
+                    </div>
+
+                    <!-- PW -->
+                    <div>
+                        <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+                        <span class="box int_pass">
+                            <input class="int" type="password" name="password" placeholder="비밀번호를 입력하세요 ."><br>
+                        </span>
+                    </div>
+
+                    <!-- NICKNAME -->
+                    <div>
+                        <h3 class="join_title"><label for="nickname">대학교</label></h3>
+                        <span class="box int_name">
+                            <input class="int" type="text" name="university" placeholder="재학 중인 대학교를 입력하세요"><br>
+                        </span>
+                    </div>
+
+                    <!-- ADRESS -->
+                    <div>
+                        <h3 class="join_title"><label for="nickname">대학교</label></h3>
+                        <span class="box int_name">
+                            <input class="int" type="text" name="adress" placeholder="주소를 입력해주세요."><br>
+                        </span>
+                    </div>
+
+                    <!-- profileImg -->
+                    <div>
+                        <h3 class="join_title"><label for="nickname">프로필이미지</label></h3>
+                        <span class="box int_img">
+                            <input type="file" name="image" accept="image/*"  maxlength="20" required>
+                        </span>
+                    </div>
+
+                    <!-- JOIN BTN-->
+                    <div class="btn_area">
+                        <button id="btnJoin">
+                            가입하기
+                        </button>
+                        <p style="text-align: center;">이미 아이디가 있으신가요?<a href="{% url 'user_login' %}" style="color:black;">로그인</a></p>
+                    </div>
+                </div> 
+            </div> 
+
     </form>
     {% endblock%}

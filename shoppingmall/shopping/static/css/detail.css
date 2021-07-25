@@ -8,3 +8,14 @@
 *{
     font-family: 'IM_Hyemin-Regular';
 }
+
+.item{
+    text-align: center;
+    padding-left: 40%;
+    padding-top: 5%;
+}
+
+.item-detail{
+    display: flex;
+}
+

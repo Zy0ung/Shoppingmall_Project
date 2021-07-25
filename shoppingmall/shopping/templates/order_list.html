@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %} 주문 목록 {% endblock %}
+{% block link %}{% static 'css/order_list.css' %}{% endblock %}
 {% block content %}
-    <h3>주문 목록</h3>
+<br>
+<br>
+<div class="order-list">
+    <h3 style="text-align: center;">주문 목록</h3>
+    <br>
+    <hr>
     {% for item in result %}
-    <a href="{% url 'detail' item.id %}">
-        <div>
-            <p><img src = "{{ item.image.url }}" width="300px" height="300px"></p>
-            <p>상품명 : {{item.name}}</p> 
-            <p>상품 설명 : {{item.body}} </p>
+        <a href="{% url 'detail' item.id %}">
+        <div class="product">
+            <p><img src = "{{ item.image.url }}" width="150px" height="150px"></p>
+            <span><p style="padding-left: 30%; font-size:25px">상품명 : {{item.name}}<br>
+            </p></span> 
         </div>
     </a>
+    <hr>
     {% endfor %}
+</div>
 {% endblock %}

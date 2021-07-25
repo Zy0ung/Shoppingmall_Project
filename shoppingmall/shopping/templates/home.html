@@ -3,13 +3,13 @@
 {% block title %}Shoppingmall{% endblock %}
 {% block link %}{% static 'css/home.css' %}{% endblock %}
 {% block content %}
-<h4 style="text-align: center; padding-top:3%">[소중한 나의 강아지에게 선물을 해주세요!]</h4>
+<h4 style="text-align: center; padding-top:3%">[소중한 나의 반려동물에게 선물을 해주세요!]</h4>
 <div class="list_wrap">
     <ul>
     {% for item in items %}
     <div class="item">
         <a href="{% url 'detail' item.id %}">
-            <p><img src="{{ item.image.url }}" width="230" alt="안나옴"></p>
+            <p><img src="{{ item.image.url }}" width="230" height="230" alt="안나옴"></p>
             <p>{{ item.name }}</p><br>
             <p>{{ item.price }}</p>
         </a>

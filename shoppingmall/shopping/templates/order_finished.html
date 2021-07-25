@@ -3,10 +3,15 @@
 {% block title %} 주문 완료 {% endblock %}
 {% block link %}{% static 'css/order_finished.css' %}{% endblock %}
 {% block content %}
-    <div id="order-div">
-        <p>주문이 완료되었습니다.</p>
-        <a href="{% url 'home' %}">
-            <button>메인 화면으로 돌아가기</button>
-        </a>
+    <div id="order-div" style="text-align: center;">
+        <p>주문이 완료되었습니다. 이용해주셔서 감사합니다</p>
+        <!-- JOIN BTN-->
+        <div class="btn_area">
+            <button id="btnJoin">
+                    <a href="{% url 'home' %}">
+                        메인 화면으로 돌아가기
+                    </a>
+                </button>
+            </div>
     </div>
 {% endblock %}

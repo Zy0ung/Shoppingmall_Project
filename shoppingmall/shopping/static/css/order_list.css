@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'IM_Hyemin-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'IM_Hyemin-Regular';
+}
+
+.order_list{
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.product{
+    display: flex;
+    text-align: left;
+    padding-left: 10%;
+}
+
+span {
+    width: 30%;
+    height: 150px;
+    line-height: 150px;
+    display: inline-block;
+    text-align: left;
+ }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+hr{
+    width: 80%;
+    border-bottom: 0px; 
+    text-align: center; 
+    margin-left: 10%;
+}

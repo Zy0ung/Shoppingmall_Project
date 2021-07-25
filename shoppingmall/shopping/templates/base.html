@@ -28,8 +28,8 @@
               {% endif %}
             </ul>
     
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="{% url 'home' %}" method="GET">
+              <input type="text" name="search_text" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
     
             <div class="dropdown text-end">

@@ -8,6 +8,10 @@ from django.core.paginator import Paginator
 # Create your views here.
 def home(request):
     items = Item.objects.order_by('-pub_date')
+    search_text = request.GET.get('search_text')
+    if search_text:
+        items = items.filter(name__icontains = search_text)
+        return render(request, 'home.html', {'items': items})
     paginator = Paginator(items, 3)
     page = request.GET.get('page')
     items = paginator.get_page(page)

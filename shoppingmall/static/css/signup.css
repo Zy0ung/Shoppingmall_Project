@@ -8,3 +8,11 @@
 *{
     font-family: 'IM_Hyemin-Regular';
 }
+input {
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border-color: #e4e4e4;
+    border-width: 1px;
+    font-size: 14px;
+}
